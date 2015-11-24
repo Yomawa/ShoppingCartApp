@@ -1,7 +1,5 @@
 <div class="col-md-12 border container-fluid">
   <div class="row">
-  </div>
-  <div class="row">
     <div class="col-md-3">
       <img ng-src="{{tea.imageUrl}}">
     </div>
@@ -15,11 +13,24 @@
       <li>Rating: {{tea.rating}}</li>
       <!-- <li>Categories: {{tea.categories}}</li> -->
         Categories:<li class="orderlist" ng-repeat="c in tea.categories">{{c}}</li>
-<!-- <select ng-model="selected" ng-options="font for font in webfonts | orderBy:'toString()' " name="fonts"> -->
-        
-          
         </li>
       </ul>
+    </div>
+    <div class="col-md-4">
+      Quantity:<select name="singleSelect" id="singleSelect" type="number" ng-model="price.option">
+          <option value=""></option>
+          <option value="1">1</option> 
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+          <option value="10">10</option>
+        </select>
+        <input class="btn btn-warning"type="submit" value="Add To Bag" id="submit">
     </div>
   </div>
 </div>

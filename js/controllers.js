@@ -1,5 +1,6 @@
 app.controller("ShoppingController",["$scope","$http",function($scope, $http){
   
+  $scope.category = {};
   $scope.view={};
   $http.get('../data.json').then(function(res) {
     console.log(res);
