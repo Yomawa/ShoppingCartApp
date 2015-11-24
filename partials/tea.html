@@ -1,0 +1,25 @@
+<div class="col-md-12 border container-fluid">
+  <div class="row">
+  </div>
+  <div class="row">
+    <div class="col-md-3">
+      <img ng-src="{{tea.imageUrl}}">
+    </div>
+    <div class="col-md-5">
+      <ul>
+      <li><h3>{{tea.name}}</h3></li>
+      <li>Ingredients: {{tea.ingredients}}</li>
+      <li>Caffeine Scale: {{tea.caffeineScale}}</li>
+      <li>Price: {{tea.price}}</li>
+      <li>In Stock: {{tea.inStock}}</li>
+      <li>Rating: {{tea.rating}}</li>
+      <!-- <li>Categories: {{tea.categories}}</li> -->
+        Categories:<li class="orderlist" ng-repeat="c in tea.categories">{{c}}</li>
+<!-- <select ng-model="selected" ng-options="font for font in webfonts | orderBy:'toString()' " name="fonts"> -->
+        
+          
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

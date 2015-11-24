@@ -1,0 +1,13 @@
+h1{
+  color: orange;
+}
+ li{
+   list-style-type: none;
+}
+.orderlist{
+  margin-left: 20px;
+  list-style-type: circle;
+}
+.border{
+  border: solid 1px gray;
+}

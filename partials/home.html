@@ -1,0 +1,60 @@
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <ul class="nav nav-tabs">
+        <li role="presentation"><a href="#">Home</a></li>
+        <li role="presentation"><a href="#">About</a></li>
+        <li role="presentation"><a href="#">Contact</a></li>
+      </ul>
+    </div><!-- /.container-fluid -->
+  </nav>
+  <body>
+  <div class="container-fluid col-md-12">
+    <div class="row">
+      <div class="col-md-4">
+        <select class="navbar-form form-control" name="singleSelect" id="singleSelect" ng-model="category.option">
+        <!-- <label>Search by category</label> -->
+          <option value="">---Search by category---</option> 
+          <option value="dark">dark</option> 
+          <option value="cold">cold</option>
+          <option value="awesome">awesome</option>
+          <option value="dry">dry</option>
+          <option value="summer">summer</option>
+          <option value="lucid">lucid</option>
+          <option value="warm">warm</option>
+          <option value="winter">winter</option>
+        </select>
+      </div>
+      <div class="col-md-4">
+        <form class="navbar-form navbar-left" role="search">
+          <div class="form-group">
+            <label>Search by Name</label>
+            <input type="text" class="form-control" placeholder="Search" ng-model="searchText">
+          </div>
+        </form>
+      </div>
+      <div class="col-md-4">
+        <button type="button" class="btn btn-warning">Check Out | Bag:Empty</button>
+      </div>
+  </div>
+     <!-- <div class="col-md-12 border"> -->
+     <div class="row">
+      <div class="col-md-3 border">
+        <h5>Tea</h5>
+      </div>
+      <div class="col-md-5 border">
+        <h5>Information</h5>
+      </div>
+      <div class="col-md-4 ">
+        <label  for="price">Sort by Price</label>  
+        <select class="border" name="price" id="price" ng-model="sort.option">
+          <option value="highest">Highest</option> 
+          <option value="lowest">Lowest</option>
+        </select>
+      </div>
+    </div>
+  </div>
+  <gs-teas-directive tea="tea" ng-repeat="tea in view.teas | filter:searchText | orderBy: category.option"></gs-teas-directive>
+  
+  </div>
+  </div>
+  </body>
