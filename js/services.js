@@ -46,6 +46,12 @@ app.service("orderService",function(){
         total += Number(items[i].qty) * Number(items[i].price);
       }
       return total;
-    }
+    },
+    removeItem: function(index){
+      items.splice(index,1);
+    },
+    editItem: function(index,item){
+      items[index].qty = item.qty;
+      }
   };
 });
