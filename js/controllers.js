@@ -1,6 +1,7 @@
-app.controller("ShoppingController",["$scope","$http",function($scope, $http){
+app.controller("ShoppingController",["$scope","$http","$filter",function($scope, $http,$filter){
   
-  $scope.category = {};
+  $scope.categories = {};
+  //$scope.searchText = ""; 
   $scope.view={};
   $http.get('../data.json').then(function(res) {
     console.log(res);

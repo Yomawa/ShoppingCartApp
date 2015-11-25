@@ -11,17 +11,17 @@
   <div class="container-fluid col-md-12">
     <div class="row">
       <div class="col-md-4">
-        <select class="navbar-form form-control" name="singleSelect" id="singleSelect" ng-model="category.option">
+        <select class="navbar-form form-control" name="singleSelect" id="singleSelect" ng-model="categories.option">
         <!-- <label>Search by category</label> -->
           <option value="">---Search by category---</option> 
-          <option value="dark">dark</option> 
-          <option value="cold">cold</option>
-          <option value="awesome">awesome</option>
-          <option value="dry">dry</option>
-          <option value="summer">summer</option>
-          <option value="lucid">lucid</option>
-          <option value="warm">warm</option>
-          <option value="winter">winter</option>
+          <option value="categories">dark</option> 
+          <option value="categories">cold</option>
+          <option value="categories">awesome</option>
+          <option value="categories">dry</option>
+          <option value="categories">summer</option>
+          <option value="categories">lucid</option>
+          <option value="categories">warm</option>
+          <option value="categories">winter</option>
         </select>
       </div>
       <div class="col-md-4">
@@ -46,15 +46,61 @@
       </div>
       <div class="col-md-4 ">
         <label  for="price">Sort by Price</label>  
-        <select class="border" name="price" id="price" ng-model="sort.option">
-          <option value="highest">Highest</option> 
-          <option value="lowest">Lowest</option>
+        <select class="border" name="price" id="price" ng-model="price.option">
+          <option value="-price">Highest</option> 
+          <option value="price">Lowest</option>
         </select>
       </div>
     </div>
   </div>
-  <gs-teas-directive tea="tea" ng-repeat="tea in view.teas | filter:searchText | orderBy: category.option"></gs-teas-directive>
-  
+  <!-- TEMPORARY DElETE THE DIRECTIVE -->
+ <!--  <gs-teas-directive tea="tea" ng-repeat="tea in view.teas | filter:searchText | orderBy: category.option"></gs-teas-directive> -->
+
+<!--   <tea="tea" ng-repeat="tea in view.teas | filter:searchText | orderBy: category.option"> -->
+
+<!-- ADDING TEA HTML -->
+<div ng-repeat="tea in view.teas | filter:searchText | orderBy:categories.option | orderBy:price.option">
+  <div class="col-md-12 border container-fluid">
+    <div class="row">
+      <div class="col-md-3">
+        <img ng-src="{{tea.imageUrl}}">
+      </div>
+      <div class="col-md-5">
+        <ul>
+        <li><h3>{{tea.name}}</h3></li>
+        <li><strong>Ingredients:</strong> {{tea.ingredients}}</li>
+        <li><strong>Caffeine Scale:</strong> {{tea.caffeineScale}}</li>
+        <li><strong>Price:</strong> {{tea.price | currency :"$" }}</li>
+        <li><strong>In Stock:</strong> {{tea.inStock}}</li>
+        <li><strong>Rating:</strong> {{tea.rating}}</li>
+        <!-- <li>Categories: {{tea.categories}}</li> -->
+          <strong>Categories:</strong><li class="orderlist" ng-repeat="c in tea.categories">{{c}}</li>
+          </li>
+        </ul>
+      </div>
+      <div class="col-md-4">
+        Quantity:<select name="singleSelect" id="singleSelect" type="number" ng-model="quantity.option">
+            <option value=""></option>
+            <option value="1">1</option> 
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+          </select>
+          <input class="btn btn-warning"type="submit" value="Add To Bag" id="submit">
+      </div>
+    </div>
+  </div>
+</div><!-- closing repeat -->
+
+
+<!-- FINISHING TEA HTML -->
+
   </div>
   </div>
   </body>

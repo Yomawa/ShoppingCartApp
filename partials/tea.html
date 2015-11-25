@@ -8,7 +8,7 @@
       <li><h3>{{tea.name}}</h3></li>
       <li>Ingredients: {{tea.ingredients}}</li>
       <li>Caffeine Scale: {{tea.caffeineScale}}</li>
-      <li>Price: {{tea.price}}</li>
+      <li>Price: {{tea.price | currency :"$" }}</li>
       <li>In Stock: {{tea.inStock}}</li>
       <li>Rating: {{tea.rating}}</li>
       <!-- <li>Categories: {{tea.categories}}</li> -->
