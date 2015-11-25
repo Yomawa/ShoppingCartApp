@@ -6,9 +6,11 @@ app.controller("ShoppingController",["$scope","$http","$filter","orderService",f
     console.log(res);
     $scope.view.teas = res.data;
   });
-    $scope.addItem = function(tea){
-      orderService.addItem(tea);
-    };
+  $scope.itemQty = orderService.getQty();
+  $scope.addItem = function(tea){
+    orderService.addItem(tea);
+    $scope.itemQty = orderService.getQty();
+  };
 }]);
 
 app.controller("checkoutController",["$scope","orderService",function($scope,orderService){

@@ -1,7 +1,7 @@
 <nav class="navbar navbar-default">
     <div class="container-fluid">
       <ul class="nav nav-tabs">
-        <li role="presentation"><a href="#">Home</a></li>
+        <li role="presentation"><a href="/#/">Home</a></li>
         <li role="presentation"><a href="#">About</a></li>
         <li role="presentation"><a href="#">Contact</a></li>
       </ul>
@@ -25,7 +25,7 @@
         </form>
       </div>
       <div class="col-md-4">
-        <button type="button" class="btn btn-warning">Check Out | Bag: {{items.length}}</button>
+        <a type="button" class="btn btn-warning" ng-href="/#/checkout">Check Out | Bag: {{itemQty}}</a>
       </div>
   </div>
      <!-- <div class="col-md-12 border"> -->
@@ -63,7 +63,7 @@
           <li><h3>{{tea.name}}</h3></li>
           <li><strong>Ingredients:</strong> {{tea.ingredients}}</li>
           <li><strong>Caffeine Scale:</strong> {{tea.caffeineScale}}</li>
-          <li><strong>Price:</strong> {{tea.price | currency :"$" }}</li>
+          <li><strong>Price:</strong> {{tea.price/100 | currency}}</li>
           <li><strong>In Stock:</strong> {{tea.inStock}}</li>
           <li><strong>Rating:</strong> {{tea.rating}}</li>
           <!-- <li>Categories: {{tea.categories}}</li> -->
