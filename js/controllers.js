@@ -15,6 +15,7 @@ app.controller("ShoppingController",["$scope","$http","$filter","orderService",f
 
 app.controller("checkoutController",["$scope","orderService",function($scope,orderService){
   $scope.items = orderService.getItems();
+  $scope.orderTotal = orderService.getOrderTotal();
 
  }]);
 
