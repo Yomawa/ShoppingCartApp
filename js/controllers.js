@@ -14,12 +14,21 @@ app.controller("ShoppingController",["$scope","$http","$filter","orderService",f
 }]);
 
 app.controller("checkoutController",["$scope","orderService",function($scope,orderService){
-  //here i am getting resoult
+  $scope.edit = {toggle: false};
+  $scope.toggleEditForm = function(item){
+    item.editFormShowing = !item.editFormShowing;
+    $scope.edit.toggle = !$scope.edit.toggle;
+    $scope.orderTotal = orderService.getOrderTotal();
+  };
+  //here i am getting result
   $scope.items = orderService.getItems();
   $scope.orderTotal = orderService.getOrderTotal();
   //but her bc it takes an argument you have to wirte a functon
   $scope.removeItem = function(index){
     orderService.removeItem(index);
+  };
+  $scope.editItem = function(qty){
+    orderService.editItem(qty);
   };
  }]);
 

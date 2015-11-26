@@ -10,7 +10,7 @@ app.service("orderService",function(){
         "imageUrl": "http://s7d5.scene7.com/is/image/Teavana/32664_d?$cimg$",
         "__v": "0",
         "categories": [ "dark", "cold"],
-        "qty": "5"
+        "qty": 5
     }];
 
   return{
@@ -23,6 +23,8 @@ app.service("orderService",function(){
         //if string !== "string"
         if(typeof(tea.qty) !== "string") {
           tea.qty = 1;
+        } else {
+          tea.qty = parseInt(tea.qty);
         }
         for(var i=0; i<items.length; i++) {
           if(items[i]._id === tea._id) {
@@ -52,6 +54,7 @@ app.service("orderService",function(){
     },
     editItem: function(index,item){
       items[index].qty = item.qty;
+      items[index].editFormShowing = false;
       }
   };
 });
